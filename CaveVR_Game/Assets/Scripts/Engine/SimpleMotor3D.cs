@@ -22,7 +22,7 @@ public class SimpleMotor3D : MonoBehaviour {
     private Vector3 _desiredDirec;
     public Vector3 desiredDirec {
         get { return _desiredDirec; }
-        set { desiredPos = value - transform.position; }
+        set { desiredPos = value + transform.position; }
     }
     
     public Vector3 truePos {
@@ -81,7 +81,8 @@ public class SimpleMotor3D : MonoBehaviour {
     /// <returns></returns>
     private Vector3 MoveInDirection() {
         return Vector3.MoveTowards(transform.position,
-                                   transform.position + desiredDirec,
+                                   transform.position + _desiredDirec,
                                    moveSpeed * Time.deltaTime);
     }
+
 }

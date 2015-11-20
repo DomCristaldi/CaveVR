@@ -11,6 +11,8 @@ public class ProjectileHandler : MonoBehaviour {
 
     private bool isSetUp = false;
 
+    public float destructionHeight = -5.0f;
+
     void Awake() {
         motor = GetComponent<SimpleMotor3D>();
     }
@@ -26,6 +28,8 @@ public class ProjectileHandler : MonoBehaviour {
 
             Debug.DrawRay(transform.position, moveDirection, Color.red);
 	    }
+
+        DestroyProtocol();
     }
 
     public void Setup(Vector3 direction) {
@@ -50,4 +54,10 @@ public class ProjectileHandler : MonoBehaviour {
                                    moveSpeed * Time.time);
     }
     */
+
+    private void DestroyProtocol() {
+        if (transform.position.z < destructionHeight) {
+            Destroy(gameObject);
+        }
+    }
 }

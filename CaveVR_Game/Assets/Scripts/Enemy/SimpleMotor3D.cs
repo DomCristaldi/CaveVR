@@ -32,6 +32,8 @@ public class SimpleMotor3D : MonoBehaviour {
         get { return desiredDirec; }
     }
 
+    public bool atPosition = false;
+
     //public Vector3 
 
     public float moveSpeed = 2.0f;
@@ -63,9 +65,14 @@ public class SimpleMotor3D : MonoBehaviour {
     /// Moves self to a position. Returns new position to set the transform to.
     /// </summary>
     private Vector3 MovementToPosition() {
-        return Vector3.MoveTowards(transform.position,
+        Vector3 newPos = Vector3.MoveTowards(transform.position,
                                    truePos,
                                    moveSpeed * Time.deltaTime);
+
+        if (newPos == truePos) { atPosition = true; }
+        else { atPosition = false; }
+
+        return newPos;
     }
 
     /// <summary>

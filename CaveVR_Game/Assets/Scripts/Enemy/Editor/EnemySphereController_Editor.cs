@@ -32,6 +32,10 @@ public class EnemySphereController_Editor : Editor {
             self.shootScript.SpawnProjectile(self.transform.position,
                                              targetTf.transform.position - self.transform.position);
         }
+
+        if (GUILayout.Button("Next Position")) {
+            self.GetNewPosition();
+        }
     }
 
     void OnSceneGUI() {

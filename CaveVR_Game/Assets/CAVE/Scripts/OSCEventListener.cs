@@ -63,7 +63,7 @@ public class OSCEventListener : MonoBehaviour {
 				// rotate Y = heading
 				// rotate Z = roll
 				if (pointerRoot)
-					pointerRoot.UpdatePointer (float.Parse(words[11]), float.Parse(words[13]), float.Parse(words[12]), float.Parse(words[15]), float.Parse(words[14]), float.Parse(words[16]));
+					pointerRoot.UpdatePointer (-float.Parse(words[11]), float.Parse(words[13]), float.Parse(words[12]), float.Parse(words[15]), float.Parse(words[14]), float.Parse(words[16]));
 			}
 			
 			
